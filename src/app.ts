@@ -79,6 +79,23 @@ const mappedUnits = Object.entries((units as any)[currentSeason]).reduce<Record<
     streamerSteamId = userRecord.steamid;
   }
 
+  // Seed / Register stikkomaniac channel
+  const stikkoChannel = "stikkomaniac";
+  const stikkoSteamId = "76561197960287931";
+  let stikkoRecord = await userRepo.findOne({ where: { twitchName: stikkoChannel } });
+  if (!stikkoRecord) {
+    logger.info(`Seeding streamer user record for Twitch channel: ${stikkoChannel}`);
+    stikkoRecord = new User();
+    stikkoRecord.steamid = stikkoSteamId;
+    stikkoRecord.name = stikkoChannel;
+    stikkoRecord.twitchName = stikkoChannel;
+    stikkoRecord.registered = true;
+    stikkoRecord.suspended = false;
+    stikkoRecord.tosAccepted = true;
+    stikkoRecord.publicProfile = true;
+    await userRepo.save(stikkoRecord);
+  }
+
   // 4. Start GSI Receiver Server (Express Router)
   const app = express();
   app.use(urlencoded({ extended: true, limit: "10mb" }));
