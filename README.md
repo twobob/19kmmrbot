@@ -52,7 +52,7 @@ All configuration variables are defined in the local `.env` file (or loaded into
 | :--- | :--- | :--- |
 | **`DB_HOST`** | `127.0.0.1` | The hostname/IP address of your MariaDB database server. |
 | **`DB_PORT`** | `3306` | The connection port for the database. |
-| **`DB_DATABASE`** | `lvyotlfu_fortify_test` | The name of the MariaDB database schema. |
+| **`DB_DATABASE`** | `example_fortify_test` | The name of the MariaDB database schema. |
 | **`DB_USER`** | `root` | The database username. |
 | **`DB_PASSWORD`** | *(blank)* | The database password. |
 | **`DB_LOG`** | `false` | Set to `true` to print raw SQL queries to stdout (useful for debugging). |
@@ -93,7 +93,7 @@ If you are setting this up on a Windows machine and have **nothing** pre-install
    ```
 3. Press `Y` (or Enter) to agree. The application will silently install MariaDB Server via `winget` and configure it.
 4. **Auto-Configuration:** The script automatically writes the default root credentials inside the `.env` file with a warning comment.
-5. **Auto-Schema Setup:** It connects to the newly installed database, creates the schema (`lvyotlfu_fortify_test`) if it does not exist, and TypeORM automatically syncs and sets up all required database tables.
+5. **Auto-Schema Setup:** It connects to the newly installed database, creates the schema (`example_fortify_test`) if it does not exist, and TypeORM automatically syncs and sets up all required database tables.
 
 ---
 
@@ -101,9 +101,9 @@ If you are setting this up on a Windows machine and have **nothing** pre-install
 
 ### A. Database Setup
 1. Open HeidiSQL or your database manager and connect to your local MariaDB instance (`127.0.0.1`).
-2. Create a database schema named `lvyotlfu_fortify_test`:
+2. Create a database schema named `example_fortify_test`:
    ```sql
-   CREATE DATABASE `lvyotlfu_fortify_test` COLLATE 'utf8mb4_unicode_ci';
+   CREATE DATABASE `example_fortify_test` COLLATE 'utf8mb4_unicode_ci';
    ```
 
 ### B. Project Configuration
@@ -116,7 +116,7 @@ npm install
 npm run build
 npm start
 ```
-*   **Automatic Schema Sync:** Upon startup, TypeORM will automatically inspect the entities (`User`, `Match`, `active_matches` table) and generate the tables inside your `lvyotlfu_fortify_test` schema.
+*   **Automatic Schema Sync:** Upon startup, TypeORM will automatically inspect the entities (`User`, `Match`, `active_matches` table) and generate the tables inside your `example_fortify_test` schema.
 *   **Gracious Failure Handling:** The bot safely catches Twitch connection failures if credentials are not configured yet, keeping the Express GSI server alive on port `6666`.
 
 ### D. Broadcast Mock Telemetry

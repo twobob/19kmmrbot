@@ -119,7 +119,7 @@ export async function checkAndInstallDatabase(logger: Logger) {
       "# WARNING: PLEASE CHANGE THESE DEFAULT CREDENTIALS IN PRODUCTION",
       "DB_HOST=127.0.0.1",
       "DB_PORT=3306",
-      "DB_DATABASE=lvyotlfu_fortify_test",
+      "DB_DATABASE=example_fortify_test",
       "DB_USER=root",
       "DB_PASSWORD=",
       "DB_LOG=true"
@@ -154,7 +154,7 @@ export async function createDatabaseIfNotExists(logger: Logger) {
   const port = parseInt(process.env.DB_PORT || "3306");
   const user = process.env.DB_USER || "root";
   const password = process.env.DB_PASSWORD || "";
-  const database = process.env.DB_DATABASE || "lvyotlfu_fortify_test";
+  const database = process.env.DB_DATABASE || "example_fortify_test";
 
   logger.info(`Checking if database "${database}" exists...`);
   let connection;
