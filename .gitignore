@@ -10,3 +10,4 @@ build/
 # Logs and system generated directories
 *.log
 .system_generated/
+src/agents.md
