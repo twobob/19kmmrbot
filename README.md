@@ -71,9 +71,33 @@ To allow the bot to connect to Twitch IRC chat and respond to commands, it needs
 5. **Copy the Token:** Copy the generated **Access Token**.
 6. **Add to `.env`:** Paste the copied token as the value for `TWITCH_OAUTH_TOKEN` in your `.env` file. (Note: Ensure the value starts with `oauth:`, for example: `TWITCH_OAUTH_TOKEN=oauth:your_access_token_here`).
 
+## 3. Windows Setup (From Absolute Scratch - Automated)
+
+If you are setting this up on a Windows machine and have **nothing** pre-installed (no Node.js, no MariaDB database, and no tables), a fully automated bootstrap script is provided.
+
+### Step 1: Run the Bootstrapper Script
+1. Open PowerShell and navigate to the project directory.
+2. Run the bootstrapper script:
+   ```powershell
+   ./start.ps1
+   ```
+3. **Elevated Privileges:** The script will automatically detect if it is running as an Administrator. If it is not, it will request elevation and launch a new elevated Administrator window to check and install dependencies.
+4. **Node.js Auto-Installation:** If Node.js is missing on your system, the script will automatically install it silently via Windows Package Manager (`winget`) and reload the environment paths for the running session.
+5. **Dependency Setup:** It will automatically execute `npm install` and `npm run build` to compile the TypeScript sources.
+
+### Step 2: Database Auto-Installation & Setup
+1. When the Node server starts, it will check if **MariaDB Server** is installed on your PC.
+2. If it is not found, the terminal will ask:
+   ```txt
+   SHALL WE INSTALL IT FOR YOU? (Y/n):
+   ```
+3. Press `Y` (or Enter) to agree. The application will silently install MariaDB Server via `winget` and configure it.
+4. **Auto-Configuration:** The script automatically writes the default root credentials inside the `.env` file with a warning comment.
+5. **Auto-Schema Setup:** It connects to the newly installed database, creates the schema (`lvyotlfu_fortify_test`) if it does not exist, and TypeORM automatically syncs and sets up all required database tables.
+
 ---
 
-## 3. Local Verification & Testing
+## 4. Local Verification & Testing
 
 ### A. Database Setup
 1. Open HeidiSQL or your database manager and connect to your local MariaDB instance (`127.0.0.1`).
@@ -108,7 +132,7 @@ Refresh HeidiSQL and open the `active_matches` table. The data tab will show the
 
 ---
 
-## 4. Webserver Installation Guide (cPanel Deployment)
+## 5. Webserver Installation Guide (cPanel Deployment)
 
 Deploying to cPanel requires no secondary background services or daemon scripts:
 
@@ -137,7 +161,7 @@ Under the **Environment variables** section in cPanel's Node.js selector page, a
 
 ---
 
-## 5. Client Game Configuration & Multi-Tenant Support (Streamer Setup)
+## 6. Client Game Configuration & Multi-Tenant Support (Streamer Setup)
 
 To let other streamers (or yourself) use your private Twitch bot, the system dynamically parses the **auth** field inside each streamer's GSI payload.
 

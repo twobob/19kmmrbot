@@ -22,6 +22,7 @@ import { sharedSetup } from "./shared_index";
 import { units } from "./units";
 import { currentSeason } from "./season";
 import { poolSize } from "./pool";
+import { checkAndInstallDatabase, createDatabaseIfNotExists } from "./services/dbInit";
 
 // Initialize global variables and stubs
 (global as any).__rootdir__ = __dirname || process.cwd();
@@ -35,6 +36,10 @@ const mappedUnits = Object.entries((units as any)[currentSeason]).reduce<Record<
 (async () => {
   const logger = container.get(Logger);
   logger.info("Initializing Fortify Standalone Service...");
+
+  // Check and install MariaDB on Windows if missing, configure .env, and set up database/schema
+  await checkAndInstallDatabase(logger);
+  await createDatabaseIfNotExists(logger);
 
   // 1. Establish Database Connection (MariaDB)
   const dbConnector = container.get(PostgresConnector);
