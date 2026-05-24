@@ -1,0 +1,508 @@
+{
+	"antimage": {
+		"displayName": "Anti-Mage",
+		"alts": [
+			"anti-mage",
+			"anti mage",
+			"am",
+			"vagina",
+			"wei",
+			"anti-mega",
+			"magina"
+		]
+	},
+	"arc_warden": {
+		"displayName": "Arc Warden",
+		"alts": ["arc warden", "arc", "warden", "aw", "zet"]
+	},
+	"bat_rider": {
+		"displayName": "Batrider",
+		"alts": ["batrider", "bat", "bat rider", "jinzakk"]
+	},
+	"bloodseeker": {
+		"displayName": "Bloodseeker",
+		"alts": ["bloodseeker", "seeker", "bs", "blood seeker", "blood", "strygwyr"]
+	},
+	"bounty_hunter": {
+		"displayName": "Bounty Hunter",
+		"alts": ["bounty hunter", "bounty", "bh", "hounty bunter", "gondar"]
+	},
+	"crystal_maiden": {
+		"displayName": "Crystal Maiden",
+		"alts": [
+			"crystal maiden",
+			"maiden",
+			"cm",
+			"jaina",
+			"rylai",
+			"rylai crestfall"
+		]
+	},
+	"dazzle": {
+		"displayName": "Dazzle",
+		"alts": ["dazzle", "shadow priest"]
+	},
+	"drow_ranger": {
+		"displayName": "Drow Ranger",
+		"alts": ["drow ranger", "drow", "dr", "sylvanas", "traxex", "trax"]
+	},
+	"enchantress": {
+		"displayName": "Enchantress",
+		"alts": ["enchantress", "ench", "deer", "bambi", "sproink", "aiushtha"]
+	},
+	"lich": {
+		"displayName": "Lich",
+		"alts": ["lich", "kelthuzad", "ethreain"]
+	},
+	"magnus": {
+		"displayName": "Magnus",
+		"alts": ["magnus", "mag", "magnataur", "magnoceros"]
+	},
+	"nyx_assassin": {
+		"displayName": "Nyx Assassin",
+		"alts": ["nyx assassin", "nyx", "nix", "bug", "anubarak"]
+	},
+	"phantom_assassin": {
+		"displayName": "Phantom Assassin",
+		"alts": [
+			"phantom assassin",
+			"pa",
+			"phantom",
+			"maiev shadowsong",
+			"maiev",
+			"mortred"
+		]
+	},
+	"razor": {
+		"displayName": "Razor",
+		"alts": ["razor", "lightning revenant"]
+	},
+	"shadow_demon": {
+		"displayName": "Shadow Demon",
+		"alts": ["shadow demon", "sd", "eredar"]
+	},
+	"slardar": {
+		"displayName": "Slardar",
+		"alts": ["slardar", "fish", "slithereen guard"]
+	},
+	"snapfire": {
+		"displayName": "Snapfire",
+		"alts": ["snapfire", "snap", "grandma", "mortimer", "snap fire", "beatrix"]
+	},
+	"tiny": {
+		"displayName": "Tiny",
+		"alts": ["tiny", "tony", "little rock", "stone giant", "rock", "stone"]
+	},
+	"tusk": {
+		"displayName": "Tusk",
+		"alts": ["tusk", "walrus", "one punch man", "tuskarr", "ymir"]
+	},
+	"vengefulspirit": {
+		"displayName": "Vengeful Spirit",
+		"alts": [
+			"vengeful spirit",
+			"vengeful",
+			"venge",
+			"shendelzare silkwood",
+			"shen",
+			"shendelzare"
+		]
+	},
+	"venomancer": {
+		"displayName": "Venomancer",
+		"alts": [
+			"venomancer",
+			"veno",
+			"lesale",
+			"lesale deathbringer",
+			"bananamancer"
+		]
+	},
+	"warlock": {
+		"displayName": "Mr. Warlock",
+		"alts": ["mr. warlock", "demnok", "demnok lannik"]
+	},
+	"weaver": {
+		"displayName": "Weaver",
+		"alts": ["weaver", "anubseran", "cockroach", "skitskurr"]
+	},
+	"bristleback": {
+		"displayName": "Bristleback",
+		"alts": [
+			"bristleback",
+			"bb",
+			"bristle",
+			"bristle back",
+			"pig",
+			"brus",
+			"rigwarl",
+			"bristlebok",
+			"bristlebog"
+		]
+	},
+	"chaos_knight": {
+		"displayName": "Chaos Knight",
+		"alts": ["chaos knight", "ck", "chaos", "nessaj"]
+	},
+	"earth_spirit": {
+		"displayName": "Earth Spirit",
+		"alts": ["earth spirit", "stone guy", "earth", "kaolin"]
+	},
+	"juggernaut": {
+		"displayName": "Juggernaut",
+		"alts": ["juggernaut", "jugg", "yurnero"]
+	},
+	"kunkka": {
+		"displayName": "Kunkka",
+		"alts": [
+			"kunkka",
+			"daelin",
+			"daelin proudmoore",
+			"admiral kunkka",
+			"admiral"
+		]
+	},
+	"legion_commander": {
+		"displayName": "Legion Commander",
+		"alts": ["legion commander", "lc", "legion", "tresdin"]
+	},
+	"luna": {
+		"displayName": "Luna",
+		"alts": ["luna", "luna moonfang", "moon rider"]
+	},
+	"meepo": {
+		"displayName": "Meepo",
+		"alts": ["meepo", "keepo", "geomancer"]
+	},
+	"furion": {
+		"displayName": "Nature's Prophet",
+		"alts": ["natures prophet", "np", "natures", "prophet"]
+	},
+	"ogre_magi": {
+		"displayName": "Ogre Magi",
+		"alts": ["ogre magi", "ogre", "2head", "aggron", "aggron stonebreak"]
+	},
+	"pudge": {
+		"displayName": "Pudge",
+		"alts": ["pudge", "butcher", "patches", "stitches", "fresh meat"]
+	},
+	"queen_of_pain": {
+		"displayName": "Queen of Pain",
+		"alts": ["queen of pain", "qop", "queen", "qop of pain", "akasha"]
+	},
+	"spirit_breaker": {
+		"displayName": "Spirit Breaker",
+		"alts": ["spirit breaker", "bull", "cow", "space cow", "bara", "barathrum"]
+	},
+	"storm_spirit": {
+		"displayName": "Storm Spirit",
+		"alts": [
+			"storm spirit",
+			"storm",
+			"zip zap",
+			"handsome devil",
+			"raijin",
+			"raijin thunderkeg"
+		]
+	},
+	"timbersaw": {
+		"displayName": "Timbersaw",
+		"alts": [
+			"timbersaw",
+			"timber",
+			"shredder",
+			"goblin shredder",
+			"rizzrak",
+			"rizzrack"
+		]
+	},
+	"wind_ranger": {
+		"displayName": "Windranger",
+		"alts": [
+			"windranger",
+			"wind ranger",
+			"wind",
+			"windrunner",
+			"wind runner",
+			"alleria",
+			"wr",
+			"lyralei"
+		]
+	},
+	"witch_doctor": {
+		"displayName": "Witch Doctor",
+		"alts": ["witch doctor", "wd", "witch", "doctor", "voljin", "zharvakko"]
+	},
+	"abaddon": {
+		"displayName": "Abaddon",
+		"alts": ["abaddon", "abba", "lord of avernus"]
+	},
+	"alchemist": {
+		"displayName": "Alchemist",
+		"alts": ["alchemist", "alch", "razzil darkbrew", "razzil"]
+	},
+	"beastmaster": {
+		"displayName": "Beastmaster",
+		"alts": ["beastmaster", "bm", "beast", "beast master", "rexxar", "karroch"]
+	},
+	"broodmother": {
+		"displayName": "Broodmother",
+		"alts": [
+			"broodmother",
+			"brood",
+			"brood mother",
+			"black arachnia",
+			"broodmama",
+			"brood mama",
+			"mother comes",
+			"spider"
+		]
+	},
+	"clockwerk": {
+		"displayName": "Clockwerk",
+		"alts": ["clockwerk", "clockwork", "clock", "rattletrap"]
+	},
+	"ember_spirit": {
+		"displayName": "Ember Spirit",
+		"alts": ["ember spirit", "ember", "imba", "imba spirit", "xin"]
+	},
+	"enigma": {
+		"displayName": "Enigma",
+		"alts": ["enigma", "darchow"]
+	},
+	"wisp": {
+		"displayName": "IO",
+		"alts": ["io", "guardian wisp"]
+	},
+	"life_stealer": {
+		"displayName": "Lifestealer",
+		"alts": ["lifestealer", "naix", "wifestealer"]
+	},
+	"lycan": {
+		"displayName": "Lycan",
+		"alts": ["lycan", "wolf", "dog", "banehallow", "lycanthrope"]
+	},
+	"morphling": {
+		"displayName": "Morphling",
+		"alts": ["morphling", "morph"]
+	},
+	"omniknight": {
+		"displayName": "Omniknight",
+		"alts": ["omniknight", "omni", "uther", "purist", "purist thunderwrath"]
+	},
+	"puck": {
+		"displayName": "Puck",
+		"alts": ["puck", "kupu-kupu", "faerie dragon"]
+	},
+	"shadow_fiend": {
+		"displayName": "Shadow Fiend",
+		"alts": ["shadow fiend", "nevermore", "sf", "shadow friend"]
+	},
+	"shadow_shaman": {
+		"displayName": "Shadow Shaman",
+		"alts": ["shadow shaman", "shaman", "rhasta"]
+	},
+	"slark": {
+		"displayName": "Slark",
+		"alts": [
+			"slark",
+			"small fish",
+			"murloc",
+			"nightcrawler",
+			"murloc nightcrawler"
+		]
+	},
+	"sniper": {
+		"displayName": "Sniper",
+		"alts": ["sniper", "hoho", "haha", "hoho haha", "kardel", "kardel sharpeye"]
+	},
+	"spectre": {
+		"displayName": "Spectre",
+		"alts": ["spectre", "spec", "mercurial"]
+	},
+	"terrorblade": {
+		"displayName": "Terrorblade",
+		"alts": [
+			"terrorblade",
+			"tb",
+			"terror blade",
+			"soul keeper",
+			"demon marauder"
+		]
+	},
+	"tinker": {
+		"displayName": "Tinker",
+		"alts": ["tinker", "boush"]
+	},
+	"treant_protector": {
+		"displayName": "Treant Protector",
+		"alts": [
+			"treant protector",
+			"treant",
+			"tree",
+			"tp",
+			"tree daddy",
+			"rooftrellen"
+		]
+	},
+	"death_prophet": {
+		"displayName": "Death Prophet",
+		"alts": ["death prophet", "dp", "krobelus"]
+	},
+	"disruptor": {
+		"displayName": "Disruptor",
+		"alts": ["disruptor", "ruptor", "tractor", "stormcrafter", "thrall"]
+	},
+	"doom": {
+		"displayName": "Doom",
+		"alts": ["doom", "doombringer", "doom bringer", "lucifer"]
+	},
+	"lina": {
+		"displayName": "Lina",
+		"alts": ["lina", "lina inverse", "hothead", "hot head", "linda", "slayer"]
+	},
+	"lone_druid": {
+		"displayName": "Lone Druid",
+		"alts": [
+			"lone druid",
+			"ld",
+			"lone",
+			"bear",
+			"bulldog",
+			"syllabear",
+			"sylla"
+		]
+	},
+	"mirana": {
+		"displayName": "Mirana",
+		"alts": [
+			"mirana",
+			"priestess of the moon",
+			"potm",
+			"princess of the moon",
+			"potm of the moon"
+		]
+	},
+	"necrophos": {
+		"displayName": "Necrophos",
+		"alts": ["necrophos", "necro", "rotundjere", "necrolyte"]
+	},
+	"pangolier": {
+		"displayName": "Pangolier",
+		"alts": ["pangolier", "pango", "donte", "donte panlin"]
+	},
+	"rubick": {
+		"displayName": "Rubick",
+		"alts": ["rubick", "grand magus"]
+	},
+	"sven": {
+		"displayName": "Sven",
+		"alts": ["sven", "rogue knight", "rk"]
+	},
+	"templar_assassin": {
+		"displayName": "Templar Assassin",
+		"alts": ["templar assassin", "ta", "templar", "lanaya"]
+	},
+	"tidehunter": {
+		"displayName": "Tidehunter",
+		"alts": [
+			"tidehunter",
+			"tide hunter",
+			"tide",
+			"TH",
+			"watermelon",
+			"big fish",
+			"melon",
+			"kraken",
+			"leviathan"
+		]
+	},
+	"viper": {
+		"displayName": "Viper",
+		"alts": ["viper", "netherdrake"]
+	},
+	"void_spirit": {
+		"displayName": "Void Spirit",
+		"alts": ["void spirit", "inai"]
+	},
+	"axe": {
+		"displayName": "Axe",
+		"alts": ["axe", "mogul", "mogul khan"]
+	},
+	"dragon_knight": {
+		"displayName": "Dragon Knight",
+		"alts": ["dragon knight", "dk", "davion"]
+	},
+	"faceless_void": {
+		"displayName": "Faceless Void",
+		"alts": ["faceless void", "faceless", "fv", "dark terror", "darkterror"]
+	},
+	"gyrocopter": {
+		"displayName": "Gyrocopter",
+		"alts": ["gyrocopter", "gyro", "copter", "aurel vlaicu", "aurel"]
+	},
+	"keeper_of_the_light": {
+		"displayName": "Keeper of the Light",
+		"alts": [
+			"keeper of the light",
+			"kotl",
+			"keeper",
+			"kotol",
+			"kotl of the light",
+			"kotol of the light",
+			"kontol",
+			"giff me mana",
+			"ezalor"
+		]
+	},
+	"medusa": {
+		"displayName": "Medusa",
+		"alts": ["medusa", "dusa", "lady vashj", "gorgon"]
+	},
+	"sand_king": {
+		"displayName": "Sand King",
+		"alts": ["sand king", "sk", "scorpion", "crixalis"]
+	},
+	"techies": {
+		"displayName": "Techies",
+		"alts": [
+			"techies",
+			"suicide squad",
+			"squee",
+			"spleen",
+			"spoon",
+			"squee spleen spoon"
+		]
+	},
+	"troll_warlord": {
+		"displayName": "Troll Warlord",
+		"alts": ["troll warlord", "troll", "warlord", "tw", "jahrakal"]
+	},
+	"wraith_king": {
+		"displayName": "Wraith King",
+		"alts": [
+			"wraith king",
+			"skeleton king",
+			"wk",
+			"leoric",
+			"king leoric",
+			"ostarion"
+		]
+	},
+	"anessix": {
+		"displayName": "Anessix",
+		"alts": ["anessix", "ane6", "anne", "annie"]
+	},
+	"hobgen": {
+		"displayName": "Hobgen",
+		"alts": ["hobgen", "hob"]
+	},
+	"jull": {
+		"displayName": "Jull",
+		"alts": ["jull"]
+	},
+	"enno": {
+		"displayName": "Enno",
+		"alts": ["enno", "rat"]
+	}
+}

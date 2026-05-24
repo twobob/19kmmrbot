@@ -1,0 +1,12 @@
+# Dependency directory
+node_modules/
+
+# Compiled files
+build/
+
+# Local environment file containing credentials
+.env
+
+# Logs and system generated directories
+*.log
+.system_generated/
