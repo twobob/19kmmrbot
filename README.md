@@ -2,13 +2,13 @@
 
 This project is a high-performance, consolidated, standalone version of the **Fortify Dota Underlords Data Platform**. It integrates the Game State Integration (GSI) telemetry receiver and the Twitch Bot (`17kmmrbot`) into a **single, lightweight Node.js application**. 
 
-Designed specifically for standard shared web hosting environments (such as **cPanel Node.js Selector / Application Manager**), this unified version eliminates complex infrastructure dependencies like Apache Kafka, Redis, HashiCorp Vault, and Sentry. Instead, it utilizes a single **MariaDB** database for both configuration storage and transient match caching.
+Designed specifically for standard shared web hosting environments (such as **cPanel Node.js Selector / Application Manager**), this unified version eliminates complex infrastructure dependencies like Apache Kafka, Redis, HashiCorp Vault, and Sentry. Instead, it utilises a single **MariaDB** database for both configuration storage and transient match caching.
 
 ---
 
 ## 1. System Architecture & Interaction Flow
 
-In standard SaaS setups, multiple microservices communicate asynchronously via message brokers. This standalone project condenses this pipeline into a single process, utilizing your MariaDB database as the central shared state:
+In standard SaaS setups, multiple microservices communicate asynchronously via message brokers. This standalone project condenses this pipeline into a single process, utilising your MariaDB database as the central shared state:
 
 ```
 +------------------------------+
@@ -59,6 +59,17 @@ All configuration variables are defined in the local `.env` file (or loaded into
 | **`PORT`** | `6666` | Port for the Express receiver server (GSI endpoint). Managed by cPanel in production. |
 | **`BOT_USERNAME`** | `streamer` | The Twitch account name of your Twitch bot. |
 | **`TWITCH_OAUTH_TOKEN`** | `oauth:...` | The bot account's chat OAuth token (retrieve one from [twitchtokengenerator.com](https://twitchtokengenerator.com)). |
+
+### 🔑 How to Generate your Twitch OAuth Token
+
+To allow the bot to connect to Twitch IRC chat and respond to commands, it needs a valid Twitch OAuth Token. Follow these steps to generate one:
+
+1. **Log in to Twitch:** Log in to the Twitch website using the account you want the bot to post from (either a dedicated bot account or your main channel account).
+2. **Visit the Token Generator:** In your web browser, navigate to [twitchtokengenerator.com](https://twitchtokengenerator.com).
+3. **Select Token Type:** Choose **Bot Chat Token** (or ensure the `chat:read` and `chat:edit` scopes are selected).
+4. **Authorise the Application:** Click **Authorise** to connect your Twitch account and generate the tokens.
+5. **Copy the Token:** Copy the generated **Access Token**.
+6. **Add to `.env`:** Paste the copied token as the value for `TWITCH_OAUTH_TOKEN` in your `.env` file. (Note: Ensure the value starts with `oauth:`, for example: `TWITCH_OAUTH_TOKEN=oauth:your_access_token_here`).
 
 ---
 
