@@ -60,7 +60,7 @@ const mappedUnits = Object.entries((units as any)[currentSeason]).reduce<Record<
 
   // 3. Seed / Register Streamer Account
   const streamerChannel = (process.env.BOT_USERNAME ?? "streamer").toLowerCase();
-  let streamerSteamId = streamerChannel === "itstwobob" ? "76561197965340207" : "76561197960287930";
+  let streamerSteamId = process.env.BOT_STEAMID || (streamerChannel === "itstwobob" ? "76561197965340207" : "76561197960287930");
 
   const userRepo = dbConnector.getUserRepo();
   let userRecord = await userRepo.findOne({ where: { twitchName: streamerChannel } });

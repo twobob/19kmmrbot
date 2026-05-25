@@ -58,6 +58,7 @@ All configuration variables are defined in the local `.env` file (or loaded into
 | **`DB_LOG`** | `false` | Set to `true` to print raw SQL queries to stdout (useful for debugging). |
 | **`PORT`** | `6666` | Port for the Express receiver server (GSI endpoint). Managed by cPanel in production. |
 | **`BOT_USERNAME`** | `streamer` | The Twitch account name of your Twitch bot. |
+| **`BOT_STEAMID`** | `76561197960287930` | The 64-bit Steam ID of the primary streamer. |
 | **`TWITCH_OAUTH_TOKEN`** | `oauth:...` | The bot account's chat OAuth token (retrieve one from [twitchtokengenerator.com](https://twitchtokengenerator.com)). |
 
 ### 🔑 How to Generate your Twitch OAuth Token
