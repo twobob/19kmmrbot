@@ -1,14 +1,14 @@
 const http = require('http');
 
 const payload = {
-  auth: "itstwobob",
+  auth: "streamer",
   block: [
     {
       data: [
         {
           public_player_state: {
             account_id: 12345678,
-            persona_name: "itstwobob TTV",
+            persona_name: "streamer TTV",
             health: 100,
             gold: 30,
             level: 8,
