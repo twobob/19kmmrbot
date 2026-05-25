@@ -24,7 +24,7 @@ const payload = {
         {
           public_player_state: {
             account_id: 87654321,
-            persona_name: "fosterul",
+            persona_name: "streamer",
             health: 80,
             gold: 45,
             level: 9,

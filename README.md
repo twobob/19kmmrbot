@@ -168,7 +168,7 @@ To let other streamers (or yourself) use your private Twitch bot, the system dyn
 ### A. Register the Streamer in MariaDB
 For each streamer who wants to use your bot, create a new row in your MariaDB `user` table:
 *   `steamid`: The streamer's 64-bit Steam ID (e.g., `76561198047920049`).
-*   `twitchName`: The streamer's exact Twitch channel username in lowercase (e.g., `fosterul`).
+*   `twitchName`: The streamer's exact Twitch channel username in lowercase (e.g., `streamer`).
 *   `registered`: `true`
 *   `suspended`: `false`
 *   `tosAccepted`: `true`
@@ -198,7 +198,7 @@ Each streamer must place a Game State Integration (GSI) config file in their loc
             "board"         "1"
             "shop"          "1"
         }
-        "auth"          "fosterul"
+        "auth"          "streamer"
     }
     ```
     *   **`uri`:** Replace `http://bot.yourdomain.com/gsi` with the actual subdomain or domain URL assigned to your cPanel node application.
