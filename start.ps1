@@ -16,6 +16,48 @@ if (-not $isAdmin) {
     Exit
 }
 
+# Helper function to locate Dota Underlords game installation folder on Windows
+function Find-UnderlordsPath {
+    $paths = @()
+    
+    # Check registry for Steam installation path
+    $steamPath = Get-ItemProperty -Path "HKCU:\Software\Valve\Steam" -Name "SteamPath" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty SteamPath
+    if (-not $steamPath) {
+        $steamPath = Get-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Valve\Steam" -Name "InstallPath" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty InstallPath
+    }
+    
+    if ($steamPath) {
+        $paths += Join-Path $steamPath "steamapps\common\Underlords"
+        
+        # Check secondary Steam library folders in libraryfolders.vdf
+        $libFile = Join-Path $steamPath "steamapps\libraryfolders.vdf"
+        if (Test-Path $libFile) {
+            $libContent = Get-Content $libFile
+            foreach ($line in $libContent) {
+                if ($line -match '"path"\s+"([^"]+)"') {
+                    $libPath = $Matches[1] -replace '\\\\', '\'
+                    $paths += Join-Path $libPath "steamapps\common\Underlords"
+                }
+            }
+        }
+    }
+    
+    # Common drive backups
+    $drives = @("C", "D", "E", "F")
+    foreach ($drive in $drives) {
+        $paths += "${drive}:\Program Files (x86)\Steam\steamapps\common\Underlords"
+        $paths += "${drive}:\Steam\steamapps\common\Underlords"
+        $paths += "${drive}:\SteamLibrary\steamapps\common\Underlords"
+    }
+    
+    foreach ($p in $paths) {
+        if (Test-Path $p) {
+            return $p
+        }
+    }
+    return $null
+}
+
 # 2. Verify Node.js
 $node = Get-Command node -ErrorAction SilentlyContinue
 if (-not $node) {
@@ -140,6 +182,58 @@ if ($envContent -like "*your_twitch_bot_username*" -or $envContent -like "*your_
         Read-Host "Press Enter to exit"
         Exit 0
     }
+}
+
+# 8. Setup Game State Integration (GSI) Configuration
+$gsiFileName = "gamestate_integration_fortify.cfg"
+$localGsiPath = Join-Path $PSScriptRoot $gsiFileName
+
+$gsiContent = @"
+"Fortify Dota Underlords GSI Configuration"
+{
+    "uri"           "http://localhost:6666/gsi"
+    "timeout"       "5.0"
+    "buffer"        "0.1"
+    "throttle"      "0.1"
+    "heartbeat"     "30.0"
+    "data"
+    {
+        "provider"      "1"
+        "player"        "1"
+        "board"         "1"
+        "shop"          "1"
+    }
+    "auth"          "streamer"
+}
+"@
+
+# Create default GSI config locally in the project root
+if (-not (Test-Path $localGsiPath)) {
+    Write-Host "[Action] Creating default GSI configuration file ($gsiFileName) locally..." -ForegroundColor Cyan
+    $gsiContent | Out-File -FilePath $localGsiPath -Encoding utf8
+}
+
+# Try to automatically detect game location and install it
+$underlordsPath = Find-UnderlordsPath
+if ($underlordsPath) {
+    $targetGsiFolder = Join-Path $underlordsPath "game\dac\cfg\gamestate_integration"
+    if (-not (Test-Path $targetGsiFolder)) {
+        New-Item -ItemType Directory -Force -Path $targetGsiFolder | Out-Null
+    }
+    $targetGsiPath = Join-Path $targetGsiFolder $gsiFileName
+    if (-not (Test-Path $targetGsiPath)) {
+        Write-Host "[Success] Automatically copied GSI configuration to Dota Underlords game folder:" -ForegroundColor Green
+        Write-Host "   $targetGsiPath" -ForegroundColor Cyan
+        $gsiContent | Out-File -FilePath $targetGsiPath -Encoding utf8
+    } else {
+        Write-Host "[Success] GSI configuration is already present in your Dota Underlords game folder." -ForegroundColor Green
+    }
+} else {
+    Write-Host "[Warning] Could not automatically locate your Dota Underlords game installation folder." -ForegroundColor Yellow
+    Write-Host "Please copy the created file manually to enable Game State Integration:" -ForegroundColor Gray
+    Write-Host "   From: $localGsiPath" -ForegroundColor Cyan
+    Write-Host "   To:   Steam\steamapps\common\Underlords\game\dac\cfg\gamestate_integration\" -ForegroundColor Cyan
+    Write-Host ""
 }
 
 Write-Host "[Success] Starting Fortify Standalone Service..." -ForegroundColor Green
