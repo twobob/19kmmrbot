@@ -6,8 +6,19 @@
 
 If you are on Windows, you can get the game bot up and running in **two simple steps**:
 
+### Step 0: Open Terminal & Navigate to Project Folder
+Open your terminal (PowerShell or Command Prompt) and change to the folder where you downloaded or extracted the bot files:
+*   **If using PowerShell:**
+    ```powershell
+    cd D:\path\to\19kmmrbot
+    ```
+*   **If using Command Prompt (CMD):**
+    ```cmd
+    cd /d D:\path\to\19kmmrbot
+    ```
+
 ### Step 1: Run the Bootstrapper
-Open **PowerShell** as an Administrator, navigate to this project directory, and run:
+Once you are inside the project folder, run the bootstrapper script:
 ```powershell
 ./start.ps1
 ```
@@ -95,8 +106,17 @@ To allow the bot to connect to Twitch IRC chat and respond to commands, it needs
 If you are setting this up on a Windows machine and have **nothing** pre-installed (no Node.js, no MariaDB database, and no tables), a fully automated bootstrap script is provided.
 
 ### Step 1: Run the Bootstrapper Script
-1. Open PowerShell and navigate to the project directory.
-2. Run the bootstrapper script:
+1. Open your terminal (PowerShell or Command Prompt).
+2. **Change to the folder where the bot files are downloaded or extracted:**
+   *   **If using PowerShell:**
+       ```powershell
+       cd D:\path\to\19kmmrbot
+       ```
+   *   **If using Command Prompt (CMD):**
+       ```cmd
+       cd /d D:\path\to\19kmmrbot
+       ```
+3. Run the bootstrapper script:
    ```powershell
    ./start.ps1
    ```
