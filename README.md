@@ -1,6 +1,24 @@
 # Consolidated Standalone Dota Underlords GSI Twitch Bot
 
-This project is a high-performance, consolidated, standalone version of the **Fortify Dota Underlords Data Platform**. It integrates the Game State Integration (GSI) telemetry receiver and the Twitch Bot (`17kmmrbot`) into a **single, lightweight Node.js application**. 
+---
+
+## ⚡ QUICKSTART / TL;DR (Windows Setup)
+
+If you are on Windows, you can get the game bot up and running in **two simple steps**:
+
+### Step 1: Run the Bootstrapper
+Open **PowerShell** as an Administrator, navigate to this project directory, and run:
+```powershell
+./start.ps1
+```
+*This automatically installs and configures Node.js, MariaDB Server, registers the Windows service, starts the database engine, and compiles the application.*
+
+### Step 2: Configure Twitch Credentials
+1. Open the newly created `.env` file in the project directory using Notepad or any text editor.
+2. Edit the `BOT_USERNAME` (your channel name) and `TWITCH_OAUTH_TOKEN` (retrieve one from [twitchtokengenerator.com](https://twitchtokengenerator.com)).
+3. Re-run `./start.ps1` to launch the bot!
+
+--- 
 
 Designed specifically for standard shared web hosting environments (such as **cPanel Node.js Selector / Application Manager**), this unified version eliminates complex infrastructure dependencies like Apache Kafka, Redis, HashiCorp Vault, and Sentry. Instead, it utilises a single **MariaDB** database for both configuration storage and transient match caching.
 
@@ -82,19 +100,23 @@ If you are setting this up on a Windows machine and have **nothing** pre-install
    ```powershell
    ./start.ps1
    ```
-3. **Elevated Privileges:** The script will automatically detect if it is running as an Administrator. If it is not, it will request elevation and launch a new elevated Administrator window to check and install dependencies.
-4. **Node.js Auto-Installation:** If Node.js is missing on your system, the script will automatically install it silently via Windows Package Manager (`winget`) and reload the environment paths for the running session.
-5. **Dependency Setup:** It will automatically execute `npm install` and `npm run build` to compile the TypeScript sources.
+3. **Elevated Privileges:** The script will automatically request Administrator elevation to verify and configure system services.
+4. **Node.js Auto-Installation:** If Node.js is missing, the script will automatically install it silently via Windows Package Manager (`winget`).
+5. **MariaDB Auto-Installation & Service Setup:** 
+   - If MariaDB is missing, the script will silently install MariaDB Server.
+   - It will automatically register the Windows service (`MariaDB`) and start it.
+6. **Dependency & Schema Setup:** The script installs NPM dependencies, compiles the application, verifies/creates the database schema (`example_fortify_test`), and TypeORM syncs all tables automatically.
 
-### Step 2: Database Auto-Installation & Setup
-1. When the Node server starts, it will check if **MariaDB Server** is installed on your PC.
-2. If it is not found, the terminal will ask:
-   ```txt
-   SHALL WE INSTALL IT FOR YOU? (Y/n):
-   ```
-3. Press `Y` (or Enter) to agree. The application will silently install MariaDB Server via `winget` and configure it.
-4. **Auto-Configuration:** The script automatically writes the default root credentials inside the `.env` file with a warning comment.
-5. **Auto-Schema Setup:** It connects to the newly installed database, creates the schema (`example_fortify_test`) if it does not exist, and TypeORM automatically syncs and sets up all required database tables.
+### Step 2: Configure Twitch Credentials (.env)
+Once the bootstrapper completes, the game bot will start, but it needs your Twitch channel information to connect to chat:
+1. Locate the configuration file named `.env` in the project root directory.
+2. Open `.env` in Notepad or any text editor.
+3. Edit the following two values:
+   - `BOT_USERNAME`: Set this to your Twitch channel username in lowercase.
+   - `TWITCH_OAUTH_TOKEN`: Set this to your generated Twitch OAuth token (starts with `oauth:`).
+     > [!TIP]
+     > You can generate a valid Chat OAuth token easily by visiting [twitchtokengenerator.com](https://twitchtokengenerator.com).
+4. Save the file and restart the bot by running `./start.ps1` again.
 
 ---
 
