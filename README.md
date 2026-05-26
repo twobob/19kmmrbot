@@ -20,14 +20,14 @@ Open your terminal (PowerShell or Command Prompt) and change to the folder where
 ### Step 1: Run the Bootstrapper
 Once you are inside the project folder, run the bootstrapper script:
 ```powershell
-./start.ps1
+powershell ./start.ps1
 ```
 *This automatically installs and configures Node.js, MariaDB Server, registers the Windows service, starts the database engine, and compiles the application.*
 
 ### Step 2: Configure Twitch Credentials
 1. Open the newly created `.env` file in the project directory using Notepad or any text editor.
 2. Edit the `BOT_USERNAME` (your channel name) and `TWITCH_OAUTH_TOKEN` (retrieve one from [twitchtokengenerator.com](https://twitchtokengenerator.com)).
-3. Re-run `./start.ps1` to launch the bot!
+3. Re-run `powershell ./start.ps1` to launch the bot!
 
 --- 
 
@@ -118,7 +118,7 @@ If you are setting this up on a Windows machine and have **nothing** pre-install
        ```
 3. Run the bootstrapper script:
    ```powershell
-   ./start.ps1
+   powershell ./start.ps1
    ```
 3. **Elevated Privileges:** The script will automatically request Administrator elevation to verify and configure system services.
 4. **Node.js Auto-Installation:** If Node.js is missing, the script will automatically install it silently via Windows Package Manager (`winget`).
@@ -136,7 +136,7 @@ Once the bootstrapper completes, the game bot will start, but it needs your Twit
    - `TWITCH_OAUTH_TOKEN`: Set this to your generated Twitch OAuth token (starts with `oauth:`).
      > [!TIP]
      > You can generate a valid Chat OAuth token easily by visiting [twitchtokengenerator.com](https://twitchtokengenerator.com).
-4. Save the file and restart the bot by running `./start.ps1` again.
+4. Save the file and restart the bot by running `powershell ./start.ps1` again.
 
 ---
 
