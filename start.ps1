@@ -8,12 +8,22 @@ Write-Host "=============================================" -ForegroundColor Cyan
 Write-Host "   Fortify Standalone Bot - Bootstrapper" -ForegroundColor Cyan
 Write-Host "=============================================" -ForegroundColor Cyan
 
-# 1. Elevate process if needed for installer
-$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-if (-not $isAdmin) {
-    Write-Host "[Info] Relaunching script with Administrator privileges to check/install dependencies..." -ForegroundColor Yellow
-    Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-    Exit
+# 1. Elevate process only if dependencies need installation or service needs starting
+$node = Get-Command node -ErrorAction SilentlyContinue
+$mysqlPath = "C:\Program Files\MariaDB 12.2\bin\mysqld.exe"
+$mariadbInstalled = Test-Path $mysqlPath
+$service = Get-Service -Name MariaDB -ErrorAction SilentlyContinue
+$serviceRunning = $service -and ($service.Status -eq "Running")
+
+$needsElevation = (-not $node) -or (-not $mariadbInstalled) -or (-not $service) -or (-not $serviceRunning)
+
+if ($needsElevation) {
+    $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    if (-not $isAdmin) {
+        Write-Host "[Info] Relaunching script with Administrator privileges to check/install dependencies..." -ForegroundColor Yellow
+        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+        Exit
+    }
 }
 
 # Helper function to locate Dota Underlords game installation folder on Windows
