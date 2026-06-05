@@ -10,9 +10,9 @@ For the full architecture overview, cPanel deployment guide, and multi-tenant st
 
 ## Quickstart / TL;DR (Windows Setup)
 
-If you are on Windows, you can get the bot up and running in two steps.
+If you are on Windows, you can get the bot up and running in a few steps.
 
-### Step 0: Open Terminal and Navigate to Project Folder
+### Step 1: Open Terminal and Navigate to Project Folder
 
 Open your terminal (PowerShell or Command Prompt) and change to the folder where you downloaded or extracted the bot files:
 
@@ -28,7 +28,7 @@ If using Command Prompt (CMD):
 cd /d D:\path\to\19kmmrbot
 ```
 
-### Step 1: Run the Bootstrapper
+### Step 2: Run the Bootstrapper
 
 Once you are inside the project folder, run the bootstrapper script:
 
@@ -38,15 +38,13 @@ powershell ./start.ps1
 
 This automatically installs and configures Node.js, MariaDB Server, registers the Windows service, starts the database engine, and compiles the application.
 
-### Step 2: Configure Twitch Credentials
+### Step 3: Configure Twitch Credentials
 
 1. Open the newly created `.env` file in the project directory using Notepad or any text editor.
 2. Edit `BOT_USERNAME` (your channel name) and `TWITCH_OAUTH_TOKEN` (retrieve one from [twitchtokengenerator.com](https://twitchtokengenerator.com)).
 3. Re-run `powershell ./start.ps1` to launch the bot.
 
----
-
-## Configure the Gamer PC
+### Step 4:  Configure the Gamer PC
 
 Each streamer must place a Game State Integration (GSI) config file in their local game directory.
 
