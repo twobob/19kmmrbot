@@ -44,9 +44,9 @@ This automatically installs and configures Node.js, MariaDB Server, registers th
 2. Edit `BOT_USERNAME` (your channel name) and `TWITCH_OAUTH_TOKEN` (retrieve one from [twitchtokengenerator.com](https://twitchtokengenerator.com)).
 3. Re-run `powershell ./start.ps1` to launch the bot.
 
-### Step 4:  Configure the Gamer PC
+### Step 4: Configure the Gamer PC
 
-Each streamer must place a Game State Integration (GSI) config file in their local game directory.
+Place a Game State Integration (GSI) config file in your Dota Underlords game directory so the game client sends match telemetry to your local bot.
 
 1. Navigate to your Dota Underlords configuration folder. A typical path is:
    ```
@@ -54,16 +54,17 @@ Each streamer must place a Game State Integration (GSI) config file in their loc
    ```
    **Note:** The `gamestate_integration` folder probably does not exist yet. If it is not there, create it manually inside the `cfg` directory.
 2. Create a file named `gamestate_integration_fortify.cfg` inside that folder.
-3. Open the file in a text editor and enter the following settings:
+3. Open the file in a text editor and enter the following:
 
     ```txt
     "Fortify Dota Underlords GSI Configuration"
     {
-        "uri"           "http://bot.yourdomain.com/gsi"
+        "uri"           "http://127.0.0.1:6666/gsi"
         "timeout"       "5.0"
         "buffer"        "0.1"
-        "throttle"      "0.1"
-        "heartbeat"     "30.0"
+        "throttle"      "0.5"
+        "heartbeat"     "0.1"
+        "auth"          "yourTwitchName"
         "data"
         {
             "provider"      "1"
@@ -71,32 +72,12 @@ Each streamer must place a Game State Integration (GSI) config file in their loc
             "board"         "1"
             "shop"          "1"
         }
-        "auth"          "streamer"
     }
     ```
 
-    * **`uri`:** Replace `http://bot.yourdomain.com/gsi` with the actual subdomain or domain URL assigned to your cPanel node application.
-    * **`auth`:** Must match their exact Twitch username (in lowercase) registered in your database. This is used by your cPanel GSI receiver to identify the streamer and save their match telemetry separately in MariaDB.
+    * **`uri`:** Points to your local bot. The default port is `6666` (set by `PORT` in your `.env` file).
+    * **`auth`:** Replace `yourTwitchName` with your exact Twitch username in lowercase. This must match the `BOT_USERNAME` value in your `.env` file.
 
-4. Launch Dota Underlords. The game client will automatically broadcast telemetry to your webserver, enabling your Twitch bot to reply to `!mmr` commands in their chat.
+4. Launch Dota Underlords. The game client will automatically broadcast telemetry to your local bot, enabling it to reply to `!mmr` commands in your Twitch chat.
 
-### Local Development GSI Config
-
-If you are running the bot locally, use this tested config file at the same path:
-
-```txt
-"Sample Gamestate Integration Script"
-{
-    "uri" "http://127.0.0.1:3000/upload"
-    "timeout" "5.0"
-    "buffer"  "0.1"
-    "throttle" "0.5"
-    "heartbeat" "0.1"
-    "auth" "yourTwitchName"
-    "data"
-    {
-        //"public_player_state"  "1"
-        //"private_player_state"  "1"
-    }
-}
-```
+For remote/cPanel deployment and multi-streamer configuration, see [Docs/HOSTING.md](Docs/HOSTING.md).
