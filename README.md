@@ -4,7 +4,7 @@ This project is a high-performance, consolidated, standalone version of the **Fo
 
 For the full architecture overview, cPanel deployment guide, and multi-tenant streamer setup, see [Docs/HOSTING.md](Docs/HOSTING.md).
 
-![System Architecture](img/architecture.jpg)
+![System Architecture](img/architecture_standalone.jpg)
 
 ---
 
