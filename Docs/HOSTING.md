@@ -199,10 +199,7 @@ If you are running the bot locally for development, use the following config fil
     "buffer"  "0.1"
     "throttle" "0.5"
     "heartbeat" "0.1"
-    "auth"
-    {
-        "key" "rx54AtFVYw2bXmCCWJu6"
-    }
+    "auth" "yourTwitchName"
     "data"
     {
         //"public_player_state"  "1"
