@@ -48,36 +48,36 @@ This automatically installs and configures Node.js, MariaDB Server, registers th
 
 Place a Game State Integration (GSI) config file in your Dota Underlords game directory so the game client sends match telemetry to your local bot.
 
-1. Navigate to your Dota Underlords configuration folder. A typical path is:
-   ```
-   c:\SteamLibrary\steamapps\common\Underlords\game\dac\cfg\gamestate_integration\
-   ```
-   **Note:** The `gamestate_integration` folder probably does not exist yet. If it is not there, create it manually inside the `cfg` directory.
-2. Create a file named `gamestate_integration_fortify.cfg` inside that folder.
-3. Open the file in a text editor and enter the following:
+- Navigate to your Dota Underlords configuration folder. A typical path is:
+  ```
+  c:\SteamLibrary\steamapps\common\Underlords\game\dac\cfg\gamestate_integration\
+  ```
+  **Note:** The `gamestate_integration` folder probably does not exist yet. If it is not there, create it manually inside the `cfg` directory.
+- Create a file named `gamestate_integration_fortify.cfg` inside that folder.
+- Open the file in a text editor and enter the following:
 
-    ```txt
-    "Fortify Dota Underlords GSI Configuration"
-    {
-        "uri"           "http://127.0.0.1:6666/gsi"
-        "timeout"       "5.0"
-        "buffer"        "0.1"
-        "throttle"      "0.5"
-        "heartbeat"     "0.1"
-        "auth"          "yourTwitchName"
-        "data"
-        {
-            "provider"      "1"
-            "player"        "1"
-            "board"         "1"
-            "shop"          "1"
-        }
-    }
-    ```
+  ```txt
+  "Fortify Dota Underlords GSI Configuration"
+  {
+      "uri"           "http://127.0.0.1:6666/gsi"
+      "timeout"       "5.0"
+      "buffer"        "0.1"
+      "throttle"      "0.5"
+      "heartbeat"     "0.1"
+      "auth"          "yourTwitchName"
+      "data"
+      {
+          "provider"      "1"
+          "player"        "1"
+          "board"         "1"
+          "shop"          "1"
+      }
+  }
+  ```
 
-    * **`uri`:** Points to your local bot. The default port is `6666` (set by `PORT` in your `.env` file).
-    * **`auth`:** Replace `yourTwitchName` with your exact Twitch username in lowercase. This must match the `BOT_USERNAME` value in your `.env` file.
+  * **`uri`:** Points to your local bot. The default port is `6666` (set by `PORT` in your `.env` file).
+  * **`auth`:** Replace `yourTwitchName` with your exact Twitch username in lowercase. This must match the `BOT_USERNAME` value in your `.env` file.
 
-4. Launch Dota Underlords. The game client will automatically broadcast telemetry to your local bot, enabling it to reply to `!mmr` commands in your Twitch chat.
+- Launch Dota Underlords. The game client will automatically broadcast telemetry to your local bot, enabling it to reply to `!mmr` commands in your Twitch chat.
 
 For remote/cPanel deployment and multi-streamer configuration, see [Docs/HOSTING.md](Docs/HOSTING.md).
